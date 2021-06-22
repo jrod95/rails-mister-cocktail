@@ -4,17 +4,17 @@ class CocktailsController < ApplicationController
         @cocktails = Cocktail.all
         @cocktail = Cocktail.new
     end
-    
+
     def show
     end
-    
+
     def new
         @cocktail = Cocktail.new
     end
-    
+
     def create
         @cocktail = Cocktail.new(cocktail_params)
-    
+
         if @cocktail.save
           redirect_to @cocktail
         else
@@ -29,7 +29,7 @@ class CocktailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cocktail_params
-      params.require(:cocktail).permit(:name)
+      params.require(:cocktail).permit(:name, :photo)
     end
-    
+
 end
